@@ -11,7 +11,7 @@ const reportRoutes = require('./routes/reports');
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(rateLimit({ windowMs: 15*60*1000, max: 200 }));
+app.use(rateLimit({ windowMs: 15*60*1000, max: 200, legacyHeaders: false }));
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
